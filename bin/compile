@@ -24,5 +24,5 @@ git checkout $DEPLOY_BRANCH
 python3 -m virtualenv env
 source env/bin/activate
 export DEPLOY_APP='microservices'
-gunicorn -b localhost:5800 skills.wsgi &
+gunicorn -b localhost:5800 skills.wsgi --daemon &
 sleep 5
