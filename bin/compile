@@ -12,8 +12,8 @@ if [ -d "$env_dir" ]; then
     done
 fi
 
-mkdir '/app'
-cd '/app'
+mkdir '/zero'
+cd '/zero'
 
 echo "Setup microservices"
 python3 -m virtualenv microservices
