@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bassh
 
 build_dir=$1
 cache_dir=$2
@@ -19,10 +19,10 @@ echo "Setup microservices"
 mkdir microservices
 cd microservices
 git clone $GIT_URL
-git checkout $DEPLOY_BRANCH
 cd $PROJECT_NAME
+git checkout $DEPLOY_BRANCH
 python3 -m virtualenv env
-env/bin/activate
+source env/bin/activate
 export DEPLOY_APP='microservices'
 gunicorn -b localhost:5800 skills.wsgi &
 deactivate
@@ -31,10 +31,10 @@ echo "Setup experience"
 mkdir experiences
 cd experiences
 git clone $GIT_URL
-git checkout $DEPLOY_BRANCH
 cd $PROJECT_NAME
+git checkout $DEPLOY_BRANCH
 python3 -m virtualenv env
-env/bin/activate
+source env/bin/activate
 export DEPLOY_APP='experiences'
 gunicorn -b localhost:5800 skills.wsgi &
 deactivate
