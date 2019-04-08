@@ -13,6 +13,7 @@ if [ -d "$env_dir" ]; then
 fi
 
 echo "Cloning project"
+echo $SSH_KEY >> $2/ssh
 GIT_SSH_COMMAND="ssh -i $2/ssh -F /dev/null" git clone $GIT_URL $PROJECT_NAME
 
 cd $PROJECT_NAME
