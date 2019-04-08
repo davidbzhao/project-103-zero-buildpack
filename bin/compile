@@ -26,15 +26,3 @@ source env/bin/activate
 export DEPLOY_APP='microservices'
 gunicorn -b localhost:5800 skills.wsgi &
 deactivate
-
-echo "Setup experience"
-mkdir experiences
-cd experiences
-git clone $GIT_URL
-cd $PROJECT_NAME
-git checkout $DEPLOY_BRANCH
-python3 -m virtualenv env
-source env/bin/activate
-export DEPLOY_APP='experiences'
-gunicorn -b localhost:5800 skills.wsgi &
-deactivate
