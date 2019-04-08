@@ -12,12 +12,6 @@ if [ -d "$env_dir" ]; then
     done
 fi
 
-echo "Set up experiences"
-mkdir experiences
-mv * experiences/
-mv experiences/Procfile Procfile
-
-
 echo "Set up microservices"
 mkdir "$1/microservices"
 cd "$1/microservices"
