@@ -12,8 +12,10 @@ if [ -d "$env_dir" ]; then
     done
 fi
 
+echo $SSH_KEY >> $2/ssh
+
 echo "Cloning project"
-git clone $GIT_URL $PROJECT_NAME
+ssh -i $2/ssh git clone $GIT_URL $PROJECT_NAME
 
 cd $PROJECT_NAME
 ls
