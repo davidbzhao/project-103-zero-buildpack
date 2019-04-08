@@ -18,6 +18,8 @@ cd "$1/microservices"
 git clone $GIT_URL
 cd $PROJECT_NAME
 git checkout $DEPLOY_BRANCH
+cd ..
+mv $PROJECT_NAME/* .
 python3 -m virtualenv env
 source env/bin/activate
 export DEPLOY_APP='microservices'
