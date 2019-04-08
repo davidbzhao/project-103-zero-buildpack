@@ -22,7 +22,7 @@ git clone $GIT_URL
 git checkout $DEPLOY_BRANCH
 cd $PROJECT_NAME
 python3 -m virtualenv env
-source env/bin/activate
+env/bin/activate
 export DEPLOY_APP='microservices'
 gunicorn -b localhost:5800 skills.wsgi &
 deactivate
@@ -34,7 +34,7 @@ git clone $GIT_URL
 git checkout $DEPLOY_BRANCH
 cd $PROJECT_NAME
 python3 -m virtualenv env
-source env/bin/activate
+env/bin/activate
 export DEPLOY_APP='experiences'
 gunicorn -b localhost:5800 skills.wsgi &
 deactivate
