@@ -14,7 +14,7 @@ fi
 
 echo "Set up experiences"
 mkdir experiences
-mv !(experiences) experiences/
+mv * experiences/
 mv experiences/Procfile Procfile
 
 
