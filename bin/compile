@@ -13,6 +13,7 @@ if [ -d "$env_dir" ]; then
 fi
 
 echo "Cloning project"
+ssh-keygen -R github.com
 echo $SSH_KEY >> $2/ssh
 git config core.sshCommand "ssh -i $2/ssh -F /dev/null -o StrictHostKeyChecking=no -v"
 git clone $GIT_URL $PROJECT_NAME
