@@ -21,6 +21,6 @@ git checkout $DEPLOY_BRANCH
 cd ..
 mv $PROJECT_NAME/* .
 python3 -m virtualenv env
-source env/bin/activate
-source export DEPLOY_APP='microservices'
+source env/bin/activate;
+export DEPLOY_APP='microservices'
 sleep 5
