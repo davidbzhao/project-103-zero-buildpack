@@ -1,7 +1,7 @@
 #!/bin/bash
 
 build_dir=$1
-cache_dir=$2
+cache_dir=$2w 
 env_dir=$3
 
 whitelist_regex=${2:-''}
@@ -12,12 +12,14 @@ if [ -d "$env_dir" ]; then
     done
 fi
 
-mkdir "$1/zero"
-cd "$1/zero"
+echo "Set up experiences"
+mkdir experiences
+mv ./* experiences/
 
-echo "Setup microservices"
-mkdir microservices
-cd microservices
+
+echo "Set up microservices"
+mkdir "$1/microservices"
+cd "$1/microservices"
 git clone $GIT_URL
 cd $PROJECT_NAME
 git checkout $DEPLOY_BRANCH
