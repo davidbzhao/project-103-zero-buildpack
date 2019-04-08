@@ -24,3 +24,11 @@ python3 -m virtualenv env
 source env/bin/activate;
 export DEPLOY_APP='microservices'
 sleep 5
+
+
+echo "Set up ElasticSearch"
+mkdir "$1/elasticsearch"
+cd "$1/elasticsearch"
+curl -L -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.6/elasticsearch-2.4.6.tar.gz
+tar -xvf elasticsearch-2.4.6.tar.gz
+sleep 5
