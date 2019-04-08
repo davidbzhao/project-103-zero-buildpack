@@ -16,25 +16,25 @@ mkdir '/zero'
 cd '/zero'
 
 echo "Setup microservices"
-python3 -m virtualenv microservices
-source microservices/bin/activate
-export DEPLOY_APP='microservices'
 git clone $GIT_URL $PROJECT_NAME
 mkdir microservices
 mv $PROJECT_NAME/* microservices/
 cd microservices
+python3 -m virtualenv env
+source env/bin/activate
+export DEPLOY_APP='microservices'
 git checkout $DEPLOY_BRANCH
 gunicorn -b localhost:5800 skills.wsgi &
 deactivate
 
 echo "Setup experience"
-python3 -m virtualenv experience
-source experience/bin/activate
-export DEPLOY_APP='experience'
 git clone $GIT_URL $PROJECT_NAME
-mkdir experience
-mv $PROJECT_NAME/* experience/
-cd experience
+mkdir experiences
+mv $PROJECT_NAME/* experiences/
+cd experiences
+python3 -m virtualenv env
+source env/bin/activate
+export DEPLOY_APP='experiences'
 git checkout $DEPLOY_BRANCH
-gunicorn skills.wsgi &
+gunicorn -b localhost:5800 skills.wsgi &
 deactivate
