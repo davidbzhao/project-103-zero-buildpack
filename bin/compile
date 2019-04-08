@@ -1,4 +1,4 @@
-#!/bin/bassh
+#!/bin/bash
 
 build_dir=$1
 cache_dir=$2
