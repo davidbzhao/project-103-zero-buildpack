@@ -12,10 +12,29 @@ if [ -d "$env_dir" ]; then
     done
 fi
 
-echo "Cloning project"
+mkdir '/app'
+cd '/app'
+
+echo "Setup microservices"
+python3 -m virtualenv microservices
+source microservices/bin/activate
+export DEPLOY_APP='microservices'
 git clone $GIT_URL $PROJECT_NAME
-
-cd $PROJECT_NAME
-ls
-
+mkdir microservices
+mv $PROJECT_NAME/* microservices/
+cd microservices
 git checkout $DEPLOY_BRANCH
+gunicorn -b localhost:5800 skills.wsgi
+deactivate
+
+echo "Setup experience"
+python3 -m virtualenv experience
+source experience/bin/activate
+export DEPLOY_APP='experience'
+git clone $GIT_URL $PROJECT_NAME
+mkdir experience
+mv $PROJECT_NAME/* experience/
+cd experience
+git checkout $DEPLOY_BRANCH
+gunicorn skills.wsgi
+deactivate
