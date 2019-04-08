@@ -14,7 +14,7 @@ fi
 
 echo "Cloning project"
 echo $SSH_KEY >> $2/ssh
-git config core.sshCommand "ssh -i $2/ssh -F /dev/null"
+git config core.sshCommand "ssh -i $2/ssh -F /dev/null -o StrictHostKeyChecking=no -v"
 git clone $GIT_URL $PROJECT_NAME
 
 cd $PROJECT_NAME
