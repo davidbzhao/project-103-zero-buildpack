@@ -24,7 +24,7 @@ mkdir microservices
 mv $PROJECT_NAME/* microservices/
 cd microservices
 git checkout $DEPLOY_BRANCH
-gunicorn -b localhost:5800 skills.wsgi
+gunicorn -b localhost:5800 skills.wsgi &
 deactivate
 
 echo "Setup experience"
@@ -36,5 +36,5 @@ mkdir experience
 mv $PROJECT_NAME/* experience/
 cd experience
 git checkout $DEPLOY_BRANCH
-gunicorn skills.wsgi
+gunicorn skills.wsgi &
 deactivate
