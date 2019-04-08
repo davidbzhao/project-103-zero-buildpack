@@ -18,7 +18,7 @@ cd "$1/zero"
 echo "Setup microservices"
 mkdir microservices
 cd microservices
-git clone $GIT_URL $PROJECT_NAME
+git clone $GIT_URL
 git checkout $DEPLOY_BRANCH
 cd $PROJECT_NAME
 python3 -m virtualenv env
@@ -30,7 +30,7 @@ deactivate
 echo "Setup experience"
 mkdir experiences
 cd experiences
-git clone $GIT_URL $PROJECT_NAME
+git clone $GIT_URL
 git checkout $DEPLOY_BRANCH
 cd $PROJECT_NAME
 python3 -m virtualenv env
