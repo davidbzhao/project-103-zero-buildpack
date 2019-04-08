@@ -22,5 +22,5 @@ cd ..
 mv $PROJECT_NAME/* .
 python3 -m virtualenv env
 source env/bin/activate
-export DEPLOY_APP='microservices'
+source export DEPLOY_APP='microservices'
 sleep 5
