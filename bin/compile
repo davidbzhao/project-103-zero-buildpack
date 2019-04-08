@@ -15,6 +15,7 @@ fi
 echo "Set up experiences"
 mkdir experiences
 mv ./* experiences/
+mv experiences/Procfile Procfile
 
 
 echo "Set up microservices"
@@ -26,5 +27,4 @@ git checkout $DEPLOY_BRANCH
 python3 -m virtualenv env
 source env/bin/activate
 export DEPLOY_APP='microservices'
-gunicorn -b localhost:5800 skills.wsgi --daemon &
 sleep 5
