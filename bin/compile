@@ -1,0 +1,21 @@
+#!/bin/sh
+
+build_dir=$1
+cache_dir=$2
+env_dir=$3
+
+whitelist_regex=${2:-''}
+blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
+if [ -d "$env_dir" ]; then
+    for e in $(ls $env_dir); do
+        export "$e=$(cat $env_dir/$e)";
+    done
+fi
+
+echo "Cloning project"
+git clone $GIT_URL $PROJECT_NAME
+
+cd $PROJECT_NAME
+ls
+
+git checkout $DEPLOY_BRANCH
